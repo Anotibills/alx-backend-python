@@ -2,7 +2,7 @@
 """
 Using mypy to validate the code and apply any necessary changes.
 """
-from typing import Tuple, List
+from typing import Tuple, List, Union, Any, Mapping
 
 
 def zoom_array(lst: Tuple, factor: int = 2) -> List:
@@ -13,7 +13,7 @@ def zoom_array(lst: Tuple, factor: int = 2) -> List:
     return zoomed_in
 
 
-array = tuple([12, 72, 91])
+array: Tuple[int, int, int] = (12, 72, 91)
 
 zoom_2x = zoom_array(array)
 
