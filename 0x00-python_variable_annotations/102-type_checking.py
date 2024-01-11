@@ -2,10 +2,13 @@
 """
 Using mypy to validate the code and apply any necessary changes.
 """
-from typing import Tuple, List, Union, Any, Mapping
+from typing import Tuple, List
 
 
 def zoom_array(lst: Tuple, factor: int = 2) -> List:
+    '''
+    This returns zoomed_in
+    '''
     zoomed_in: List = [
         item for item in lst
         for i in range(factor)
