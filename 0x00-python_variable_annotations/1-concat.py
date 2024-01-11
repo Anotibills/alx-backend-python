@@ -1,4 +1,4 @@
-#!/usr/bin/nev python3
+#!/usr/bin/env python3
 """
 Type-annotated function concat that takes str1, str2 and returns a concat
 """
