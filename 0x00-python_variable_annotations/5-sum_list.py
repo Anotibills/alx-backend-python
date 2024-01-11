@@ -5,7 +5,7 @@ Type-annotated function sum_list that takes input_list and returns their sum
 from typing import List
 
 
-def sum_list(input_list: List[float]):
+def sum_list(input_list: List[float]) -> float:
     '''
     This returns sum of all elements in input_list.
     '''
