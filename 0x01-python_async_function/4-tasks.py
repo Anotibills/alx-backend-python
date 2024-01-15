@@ -19,17 +19,15 @@ async def task_wait_n(n: int, max_delay: int = 10) -> List[float]:
     Returns:
     - List[float]: Sorted list of delays.
     '''
-    tasks = []
-
-    delay_list = []
+    spawn_ls = []
+    delay_ls = []
 
     for _ in range(n):
-        task = task_wait_random(max_delay)
+        delayed_task = task_wait_random(max_delay)
+        delayed_task.add_done_callback(
+            lambda x, delay_list=delay_ls: delay_list.append(x.result())
+        )
+        spawn_ls.append(delayed_task)
+    await asyncio.gather(*spawn_ls)
 
-        task.add_done_callback(lambda x: delay_list.append(x.result()))
-
-        tasks.append(task)
-
-    await asyncio.gather(*tasks)
-
-    return sorted(delay_list)
+    return sorted(delay_ls)

@@ -13,7 +13,7 @@ async def run_wait_n(n: int, max_delay: int):
 
 
 def measure_time(n: int, max_delay: int) -> float:
-    ''' 
+    '''
     Return average execution time for wait_n given `n` and `max_delay`.
 
     Parameters:
