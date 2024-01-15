@@ -2,11 +2,11 @@
 """
 A new function task_wait_n. except task_wait_random is being called.
 """
-from typing import List
+from typing import List, Any
 import asyncio
 
 
-async def task_wait_n(n: int, max_delay: int) -> List[float]:
+def task_wait_random(max_delay: int) -> asyncio.Task:
     '''
     Execute task_wait_random 'n' times and return a sorted list of delays.
 
@@ -17,18 +17,20 @@ async def task_wait_n(n: int, max_delay: int) -> List[float]:
     Returns:
     - List[float]: Sorted list of delays.
     '''
-    modified_random = __import__('3-tasks').task_wait_random
+    wait_random = __import__('0-basic_async_syntax').wait_random
+    return asyncio.create_task(wait_random(max_delay))
 
+
+async def task_wait_n(n: int, max_delay: int) -> List[Any]:
+    '''Runs an async function for n times and adds the results into a list'''
+    task_wait_random_func = task_wait_random  # Alias for better readability
     delay_list = []
 
     for _ in range(n):
-        delay_list.append(await modified_random(max_delay))
+        delay_list.append(await task_wait_random_func(max_delay))
 
     return sorted(delay_list)
 
 
 if __name__ == '__main__':
-    import asyncio
-
-    print(task_wait_n.__doc__)
-    print(asyncio.run(task_wait_n(3, 4)))
+    asyncio.run(task_wait_n(3, 4))

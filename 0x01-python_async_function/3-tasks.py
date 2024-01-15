@@ -3,6 +3,7 @@
 function task_wait_random that takes an integer and returns a asyncio.Task
 """
 import asyncio
+from typing import Any
 
 
 def task_wait_random(max_delay: int) -> asyncio.Task:
@@ -16,15 +17,10 @@ def task_wait_random(max_delay: int) -> asyncio.Task:
     - asyncio.Task[float]: Task object representing async execution.
     '''
     wait_random = __import__('0-basic_async_syntax').wait_random
-
     return asyncio.create_task(wait_random(max_delay))
 
 
 if __name__ == '__main__':
-    async def test(max_delay: int) -> float:
-        task = task_wait_random(max_delay)
-        await task
-        print(task.__class__)
-
-    asyncio.run(test(5))
-    return asyncio.create_task(wait_random(max_delay))
+    max_delay = 5
+    task = task_wait_random(max_delay)
+    print(f'Task created: {task.__class__}')
