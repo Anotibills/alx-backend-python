@@ -5,9 +5,10 @@ asynchronous coroutine that takes in an integer argument and returns it.
 import asyncio
 import random
 
+
 async def wait_random(max_delay: int = 10) -> float:
     '''
-    Async function that waits for a random amount of time up to max_delay seconds.
+    Async function that waits for random amount of time up
 
     Parameters:
     - max_delay (int): Maximum delay in seconds.

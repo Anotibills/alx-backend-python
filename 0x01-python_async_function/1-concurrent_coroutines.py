@@ -4,12 +4,12 @@
 """
 import asyncio
 from typing import List
-from 0-basic_async_syntax.py import wait_random
+from 0-basic_async_syntax import wait_random
 
 
 async def wait_n(n: int, max_delay: int = 10) -> List[float]:
     """
-    Waits for random delays up to max_delay 'n' times, returns list of actual delays.
+    This waits for random delays, then returns list of actual delays.
 
     Parameters:
     - n (int): Number of delays to wait for.
