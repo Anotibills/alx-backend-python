@@ -25,8 +25,11 @@ async def execute_tasks(n: int, max_delay: int = 10) -> List[float]:
 
     for _ in range(n):
         task = task_wait_random(max_delay)
-        task.add_done_callback(lambda x: delay_list.append(x.result()))
+        task.add_done_callback(
+            lambda x, delays=delay_list: delays.append(x.result())
+        )
         task_list.append(task)
+
 
     await asyncio.gather(*task_list)
 
