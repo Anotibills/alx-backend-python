@@ -5,8 +5,8 @@ A new function task_wait_n. except task_wait_random is being called.
 from typing import List, Any
 import asyncio
 import random
-my_module = __import__('3-tasks')
-task_wait_random = my_module.task_wait_random
+
+task_wait_random = __import__('3-tasks').task_wait_random
 
 
 async def execute_tasks(n: int, max_delay: int = 10) -> List[float]:
