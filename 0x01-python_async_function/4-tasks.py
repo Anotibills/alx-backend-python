@@ -6,7 +6,7 @@ from typing import List, Any
 import asyncio
 
 
-def task_wait_random(max_delay: int) -> asyncio.Task:
+async def task_wait_random(max_delay: int) -> asyncio.Task:
     '''
     Execute task_wait_random 'n' times and return a sorted list of delays.
 
@@ -22,8 +22,10 @@ def task_wait_random(max_delay: int) -> asyncio.Task:
 
 
 async def task_wait_n(n: int, max_delay: int) -> List[Any]:
-    '''Runs an async function for n times and adds the results into a list'''
-    task_wait_random_func = task_wait_random  # Alias for better readability
+    '''
+    This Runs an async function for n times and adds the results into a list
+    '''
+    task_wait_random_func = task_wait_random
     delay_list = []
 
     for _ in range(n):
@@ -33,4 +35,5 @@ async def task_wait_n(n: int, max_delay: int) -> List[Any]:
 
 
 if __name__ == '__main__':
+    print(task_wait_n.__doc__)
     asyncio.run(task_wait_n(3, 4))
