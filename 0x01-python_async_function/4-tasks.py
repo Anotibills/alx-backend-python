@@ -3,6 +3,9 @@
 A new function task_wait_n. except task_wait_random is being called.
 """
 from typing import List
+import asyncio
+import random
+task_wait_random = __import__('3-tasks').task_wait_random
 
 
 async def task_wait_n(n: int, max_delay: int = 10) -> List[float]:
