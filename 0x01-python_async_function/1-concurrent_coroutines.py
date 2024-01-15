@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 """
-
+A function that creates integers n and max_delay as arguments, the return total
 """
 import asyncio
 from typing import List
 from typing_extensions import Literal
-
 wait_random = __import__('0-basic_async_syntax').wait_random
 
 
