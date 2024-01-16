@@ -5,7 +5,7 @@ A coroutine called async_generator that takes no arguments.
 from asyncio import sleep
 from random import random
 
-from typing import AsyncGenerator
+from typing import Generator
 
 
 async def async_generator() -> Generator[float, None]:
