@@ -22,8 +22,3 @@ async def measure_runtime() -> float:
     next_time = time()
 
     return next_time - first_time
-
-
-if __name__ == "__main__":
-    runtime = run(measure_runtime())
-    print(f"Total runtime: {runtime} seconds")

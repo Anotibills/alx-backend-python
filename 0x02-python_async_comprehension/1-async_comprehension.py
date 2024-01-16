@@ -11,6 +11,3 @@ async def async_comprehension() -> List[float]:
     Return list of values yielded by async_generator.
     '''
     return [value async for value in async_generator()]
-
-import asyncio
-asyncio.run(async_comprehension())

@@ -14,11 +14,3 @@ async def async_generator() -> AsyncGenerator[float, None]:
     for i in range(10):
         await sleep(1)
         yield 10 * random()
-
-
-async def main():
-    async for value in async_generator():
-        print(value)
-
-import asyncio
-asyncio.run(main())
