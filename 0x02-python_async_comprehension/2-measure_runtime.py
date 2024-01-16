@@ -2,6 +2,7 @@
 """
 A coroutine that will execute four times in parallel.
 """
+
 from asyncio import gather, run
 from time import time
 
